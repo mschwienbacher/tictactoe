@@ -29,4 +29,13 @@ td {
     width: 133px;
     height: 133px;
     border: 5px solid black;
+    position: relative;
+}
+
+img.shape {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -40px;
+    margin-left: -40px;
 }
