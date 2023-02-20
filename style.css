@@ -32,10 +32,19 @@ td {
     position: relative;
 }
 
+td:hover {
+    cursor: pointer;
+    background: #89F298;
+}
+
 img.shape {
     position: absolute;
     left: 50%;
     top: 50%;
     margin-top: -40px;
     margin-left: -40px;
+}
+
+.d-none {
+    display: none;
 }
