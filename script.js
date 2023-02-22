@@ -1,5 +1,14 @@
-let fields = []; // leeres Array
+let fields = [];
+let currentShape = "cross";
 
-function fillShape(id) { // Funktion
-    fields[id] = "x";
+function fillShape(id) { 
+    
+    if(currentShape == "cross") {
+        currentShape = "circle";
+    } else {
+        currentShape = "cross";
+    }
+
+    fields[id] = currentShape;
+    console.log(fields);
 }
