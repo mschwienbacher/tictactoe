@@ -3,19 +3,22 @@
     <head>
         <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
-        <title>Tic Tac Toe</title>
+        <title>TIC . TAC . TOE</title>
+        <meta name="description" content="Game: TIC TAC TOE - Michael Schwienbacher">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
     </head>
     <body>
         <div class="content">
             <div class="game-is-over d-none" id="game-is-over">
                 <img src="./img/game-over.png" id="game-over" width="256" height="256" alt="">
+                <div id="thewinner"></div>
                 <button class="restart-button d-none" id="restart-button" onclick="restart()">PLAY AGAIN</button>
             </div>
             <div class="player-panel">
-                <div class="player-inactive" id="player-1">
+                <div id="player-1">
                     <img src="./img/circle.png" width="80" height="80" />Player 1
                 </div>
-                <div id="player-2">
+                <div id="player-2" class="player-inactive">
                     <img src="./img/x.png" width="80" height="80" />Player 2
                 </div> 
             </div>
