@@ -31,7 +31,14 @@ body {
 .horizontal-line {
     height: 10px;
     background:rgba(0, 0, 0, 0.5);
-    width: 415px;
+    width: 345px;
+    position: absolute;
+    z-index: 99;
+    display: none;
+}
+
+.make-vertical {
+    transform: rotate(90deg);
 }
 
 table {
