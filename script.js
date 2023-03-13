@@ -2,15 +2,21 @@ let fields = [];
 let currentShape = "cross";
 
 function fillShape(id) {  
-    if(currentShape == "cross") {
-        currentShape = "circle";
-    } else {
-        currentShape = "cross";
-    }
+    if(!fields[id]) {
+        if(currentShape == "cross") {
+                currentShape = "circle";
+                document.getElementById("player-1").classList.remove("player-inactive");
+                document.getElementById("player-2").classList.add("player-inactive");
+            } else {
+                currentShape = "cross";
+                document.getElementById("player-2").classList.remove("player-inactive");
+                document.getElementById("player-1").classList.add("player-inactive");
+            }
 
-    fields[id] = currentShape;
-    draw();
-    checkForWin();
+            fields[id] = currentShape;
+            draw();
+            checkForWin();
+        }
 }
 
 function draw() {
@@ -63,6 +69,7 @@ function checkForWin() {
 
     if(winner) {
         console.log("GEWONNEN: ", winner);
+        
     }
     
 }
