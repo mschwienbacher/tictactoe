@@ -42,6 +42,8 @@ body {
     transform: rotate(90deg) scaleX(0.0);
 }
 
+
+
 table {
     border-collapse: collapse;
     border: 0;
@@ -90,6 +92,38 @@ img.shape {
     margin-left: -40px;
 }
 
+#game-over {
+    position: absolute;
+    background:white;
+    z-index: 10;
+    animation: zoomIn 225ms ease-in-out;
+}
+
 .d-none {
     display: none;
+}
+
+.restart-button {
+    border: 1px solid black;
+    background: navajowhite;
+    padding:10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    width:300px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 200px;
+    z-index: 999;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale:(0);
+        opacity:0;
+    }
+    to {
+        transform: scale:(1);
+        opacity:1;
+    }
 }
