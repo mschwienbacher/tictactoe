@@ -34,11 +34,12 @@ body {
     width: 345px;
     position: absolute;
     z-index: 99;
-    display: none;
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
 }
 
 .make-vertical {
-    transform: rotate(90deg);
+    transform: rotate(90deg) scaleX(0.0);
 }
 
 table {
