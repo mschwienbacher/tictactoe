@@ -2,23 +2,24 @@ let fields = [];
 let gameOver = false;
 let currentShape = "cross";
 
-
 function fillShape(id) {  
     if(!fields[id] && !gameOver) {
         if(currentShape == "cross") {
-                currentShape = "circle";
-                document.getElementById("player-1").classList.add("player-inactive");
-                document.getElementById("player-2").classList.remove("player-inactive");
-            } else {
-                currentShape = "cross";
-                document.getElementById("player-2").classList.add("player-inactive");
-                document.getElementById("player-1").classList.remove("player-inactive");
-            }
-
-            fields[id] = currentShape;
-            draw();
-            checkForWin();
+            currentShape = "circle";
+            document.getElementById("player-1").classList.add("player-inactive");
+            document.getElementById("player-2").classList.remove("player-inactive");
+        } else {
+            currentShape = "cross";
+            document.getElementById("player-2").classList.add("player-inactive");
+            document.getElementById("player-1").classList.remove("player-inactive");
         }
+
+        fields[id] = currentShape;
+        console.log(fields);
+        draw();
+        checkForWin();
+        checkDraw();
+    }
 }
 
 function draw() {
@@ -29,23 +30,6 @@ function draw() {
         if(fields[i] == "cross") {
             document.getElementById("cross-" + i).classList.remove("d-none");
         }
-    }
-}
-
-function restart() {
-    gameOver = false;
-    fields = [];
-
-    document.getElementById("game-is-over").classList.add("d-none");
-    document.getElementById("restart-button").classList.add("d-none");
-
-    for(let i = 1; i < 8; i++) {
-        document.getElementById("line-" + i).classList.add("d-none");
-    }
-
-    for(let i = 0; i < 9; i++) {
-        document.getElementById("circle-" + i).classList.add("d-none");
-        document.getElementById("cross-" + i).classList.add("d-none");
     }
 }
 
@@ -70,7 +54,6 @@ function checkForWin() {
     if (fields[0] == fields[3] && fields[3] == fields[6] && fields[0]) {
         winner = fields[0];
         document.getElementById("line-4").style.transform = "rotate(90deg) scaleX(1.0)";
-        
     }
     
     if (fields[1] == fields[4] && fields[4] == fields[7] && fields[1]) {
@@ -93,7 +76,6 @@ function checkForWin() {
         document.getElementById("line-8").style.transform = "rotate(-45deg) scaleX(1.2)";
     }
 
-
     if(winner) {
         gameOver = true;
         setTimeout(function(){
@@ -105,8 +87,37 @@ function checkForWin() {
             }
             
             document.getElementById("restart-button").classList.remove("d-none");
-        }, 600);
-       
+        }, 1000);
     }
     
 }
+
+function checkDraw() {
+    let nonEmptyValues = fields.filter(function (value) {
+        return value !== undefined && value !== null;
+    });
+    if (nonEmptyValues.length === 9) {
+        document.getElementById("game-is-over").classList.remove("d-none");
+        document.getElementById("thewinner").innerHTML = '<strong class="nb">DRAW!</strong> NO ONE is the winner!';
+    }
+}
+
+ /*
+function restart() {
+    gameOver = false;
+    fields = [];
+    let currentShape = "cross";
+
+    document.getElementById("game-is-over").classList.add("d-none");
+    document.getElementById("restart-button").classList.add("d-none");
+
+    for(let i = 1; i < 8; i++) {
+        document.getElementById("line-" + i).classList.add("d-none");
+    }
+
+    for(let i = 0; i < 9; i++) {
+        document.getElementById("circle-" + i).classList.add("d-none");
+        document.getElementById("cross-" + i).classList.add("d-none");
+    }
+}
+*/
