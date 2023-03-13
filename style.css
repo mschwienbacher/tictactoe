@@ -1,25 +1,55 @@
+@keyframes zoomIn {
+    from {
+        transform: scale:(0);
+        opacity:0;
+    }
+    to {
+        transform: scale:(1);
+        opacity:1;
+    }
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: #dedbee;
+}
+
+.content {
+    position: relative;
 }
 
 .player-panel {
     display: flex;
     font-size: 32px;
     justify-content: center;
-    margin:50px 0;
+    margin: 0 0 35px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px dashed gray;
 }
 
-.player-inactive {
-    opacity: 0.5;
+#player-1 {
+    color: #fe5ca7;
+}
+
+#player-2 {
+    color: #004281;
 }
 
 .player-panel div {
     display: flex;
     align-items: center;
     margin:0 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .player-panel img {
@@ -28,12 +58,16 @@ body {
     margin:0 15px;
 }
 
+.player-inactive {
+    opacity: 0.5;
+}
+
 .horizontal-line {
-    height: 10px;
-    background:rgba(0, 0, 0, 0.5);
+    height: 5px;
+    background:rgba(0, 0, 0, 0.2);
     width: 345px;
     position: absolute;
-    z-index: 99;
+    z-index: 990;
     transform: scaleX(0.0);
     transition: transform 225ms ease-in-out;
 }
@@ -42,14 +76,11 @@ body {
     transform: rotate(90deg) scaleX(0.0);
 }
 
-
-
 table {
     border-collapse: collapse;
     border: 0;
     padding: 0;
     margin:0;
-    position: relative;
 }
 
 tr {
@@ -81,21 +112,32 @@ td {
 
 td:hover {
     cursor: pointer;
-    background: #89F298;
+    background: #ffffff64;
 }
 
 img.shape {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-top: -40px;
-    margin-left: -40px;
+    margin-top: -30px;
+    margin-left: -30px;
+}
+
+.game-is-over {
+    width: 415px;
+    height: 495px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 999;
+    border-radius: 5px;
 }
 
 #game-over {
-    position: absolute;
-    background:white;
-    z-index: 10;
+    background: #fff;
+    display: block;
+    margin:70px auto 50px auto;
     animation: zoomIn 225ms ease-in-out;
 }
 
@@ -104,26 +146,20 @@ img.shape {
 }
 
 .restart-button {
-    border: 1px solid black;
-    background: navajowhite;
-    padding:10px;
+    background: #fe5ca7;
+    padding:15px;
     cursor: pointer;
     font-weight: bold;
     text-transform: uppercase;
-    width:300px;
     font-size: 20px;
-    position: absolute;
-    bottom: 200px;
-    z-index: 999;
+    border:0;
+    margin:0 auto;
+    display: block;
+    border-radius: 5px;
+    width: 280px;
 }
 
-@keyframes zoomIn {
-    from {
-        transform: scale:(0);
-        opacity:0;
-    }
-    to {
-        transform: scale:(1);
-        opacity:1;
-    }
+.restart-button:hover {
+    background: #004281;
+    color: white;
 }

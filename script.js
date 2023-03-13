@@ -24,7 +24,7 @@ function restart() {
     gameOver = false;
     fields = [];
 
-    document.getElementById("game-over").classList.add("d-none");
+    document.getElementById("game-is-over").classList.add("d-none");
     document.getElementById("restart-button").classList.add("d-none");
     for(let i=1; i < 8; i++) {
         document.getElementById("line-" + i).classList.add("d-none");
@@ -95,12 +95,12 @@ function checkForWin() {
     }
 
     if(winner) {
-        console.log("GEWONNEN: ", winner);
+        //console.log("GEWONNEN: ", winner);
         gameOver = true;
         setTimeout(function(){
-            document.getElementById("game-over").classList.remove("d-none");
+            document.getElementById("game-is-over").classList.remove("d-none");
             document.getElementById("restart-button").classList.remove("d-none");
-        }, 1000);
+        }, 600);
        
     }
     
