@@ -180,3 +180,12 @@ img.shape {
     background: #000;
     color: white;
 }
+
+@media(max-width: 500px) {
+    .game-is-over {width:100%;}
+    #line-1, #line-2, #line-3 {left:5px !important;}
+    #line-4 {left:-114px !important;}
+    #line-5 {left:7px !important;}
+    #line-6 {right:-115px !important;}
+    #line-7, #line-8 {top: 275px !important; left: 10px !important;}
+}
